@@ -15,12 +15,15 @@ export default function Map({
   return (
     <div className="mapContainer">
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyCPv0IM57-JtKLf8H54qlbCJsTfXuN1H7M" }}
+        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
         defaultCenter={coordinates}
         center={coords}
         defaultZoom={14}
         margin={[50, 50, 50, 50]}
-        // options={""}
+        options={{
+          disableDefaultUI: true,
+          zoomControl: true,
+        }}
         onChange={(e) => {
           setCoords({ lat: e.center.lat, lng: e.center.lng });
           if (e.marginBounds && e.marginBounds.sw) {

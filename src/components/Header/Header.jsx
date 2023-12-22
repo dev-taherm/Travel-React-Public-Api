@@ -40,10 +40,7 @@ export default function Header({ onPlaceChanged, onLoad }) {
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Search…"
-                inputProps={{ "aria-label": "search" }}
-              />
+              <StyledInputBase placeholder="Search…" />
             </Search>
           </Autocomplete>
         </Toolbar>

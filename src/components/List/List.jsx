@@ -40,7 +40,9 @@ const List = ({
       ) : (
         <>
           <FormControl className="formControl">
-            <InputLabel id="type">Type</InputLabel>
+            <InputLabel fullwidith size="small" id="type">
+              Type
+            </InputLabel>
             <Select
               id="type"
               value={type}
@@ -52,7 +54,9 @@ const List = ({
             </Select>
           </FormControl>
           <FormControl className="formControl">
-            <InputLabel id="rating">Rating</InputLabel>
+            <InputLabel fullwidith size="small" id="rating">
+              Rating
+            </InputLabel>
             <Select
               id="rating"
               value={rating}

@@ -9,7 +9,7 @@ import { getPlacesData } from "./api";
 
 function App() {
   const [places, setPlaces] = useState([]);
-  const [isLoading, setIsLoadings] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [autocomplete, setAutocomplete] = useState(null);
 
@@ -31,13 +31,17 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setIsLoadings(true);
+    if (bounds) {
+      setIsLoading(true);
 
-    getPlacesData(type, bounds?.sw, bounds?.ne).then((data) => {
-      setIsLoadings(false);
-      setPlaces(data);
-    });
-  }, [type, coords, bounds]);
+      getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
+        setPlaces(data.filter((place) => place.name && place.num_reviews > 0));
+        setFilteredPlaces([]);
+        setRating("");
+        setIsLoading(false);
+      });
+    }
+  }, [bounds, type]);
   useEffect(() => {
     const filtered = places.filter((place) => Number(place.rating) > rating);
 
