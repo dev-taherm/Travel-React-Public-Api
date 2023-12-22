@@ -12,6 +12,7 @@ import {
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import Rating from "@mui/material/Rating";
+import { MarginRounded } from "@mui/icons-material";
 const PlaceDetails = ({ place, selected, refProp }) => {
   if (selected)
     refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -20,11 +21,7 @@ const PlaceDetails = ({ place, selected, refProp }) => {
     <Card elevation={6}>
       <CardMedia
         style={{ height: 350 }}
-        image={
-          place.photo
-            ? place.photo.images.large.url
-            : "https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg"
-        }
+        image={place.photo ? place.photo.images.large.url : "/default.png"}
         title={place.name}
       />
       <CardContent>

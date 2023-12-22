@@ -1,4 +1,4 @@
-// import { Autocomplete } from "@react-google-maps/api";
+import { Autocomplete } from "@react-google-maps/api";
 import {
   AppBar,
   Toolbar,
@@ -7,11 +7,12 @@ import {
   IconButton,
   InputBase,
 } from "@mui/material";
+
 import { styled, alpha } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 
-export default function Header() {
+export default function Header({ onPlaceChanged, onLoad }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -33,21 +34,18 @@ export default function Header() {
           >
             Travel React
           </Typography>
-          {/* <Autocomplete
-            onLoad={onLoad}
-            onPlaceChanged={onPlaceChanged}
-          > */}
 
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-          {/* </Autocomplete> */}
+          <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+          </Autocomplete>
         </Toolbar>
       </AppBar>
     </Box>

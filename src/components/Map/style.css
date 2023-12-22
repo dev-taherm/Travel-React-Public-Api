@@ -2,3 +2,27 @@
   height: 85vh;
   width: 100%;
 }
+
+.paper {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100px;
+}
+
+.markerContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.markerContainer:hover {
+  z-index: 2;
+}
+
+.pointer {
+  cursor: pointer;
+}
